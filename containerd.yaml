@@ -17,7 +17,8 @@
         overlay
         br_netfilter
    
-  - modprobe:
+  - name: Add kernel modules 
+    modprobe:
       name: "{{ item }}"
       state: present
     with_items:
