@@ -3,7 +3,7 @@
   hosts: master
   remote_user: root
   
-    tasks:
+  tasks:
   - name: Start cluster by kubeadm
     shell: kubeadm init --pod-network-cidr=192.168.0.0/16
     register: output
