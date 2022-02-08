@@ -22,7 +22,7 @@
     selinux:
       state: disabled
        
-   - name: Install these packages - kubelet kubeadm kubectl
+  - name: Install these packages - kubelet kubeadm kubectl
     yum:
       name: "{{ item }}"
     with.items:  
