@@ -25,7 +25,7 @@
     - overlay
     - br_netfilter
     
-  - name: Creating a file with content
+  - name: Creating a file for kernel parameters
     copy:
       dest: /etc/sysctl.d/99-kubernetes-cri.conf
       content: |
