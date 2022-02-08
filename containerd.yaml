@@ -4,18 +4,17 @@
   remote_user: root
   
   tasks:
-  - name: Install yum utils
-    yum:
-      name: yum-utils
-      state: present
-    
-  - name: Add repository
-    yum_repository:
-      name: docker
-      description: docker-ce-.repo
-      baseurl: https://download.docker.com/linux/centos/docker-ce.repo
-      
+  - name: Add repo
+    get_url:
+      url: https://download.docker.com/linux/centos/docker-ce.repo
+      dest: /etc/yum.repos.d/docker-ce.repo
+
   - name: Install containerd
     yum:
       name: containerd.io
       state: present
+
+  - name: Download nerdctl
+    get_url:
+      url: https://github.com/containerd/nerdctl/releases/download/v0.16.1/nerdctl-0.16.1-linux-amd64.tar.gz
+      dest: /tmp/nerdctl.tar.gz
