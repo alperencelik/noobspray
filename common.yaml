@@ -22,11 +22,10 @@
     selinux:
       state: disabled
        
-  - name: Install kube binaries
+  - name: install kube binaries
     yum:
       name: "{{ item }}"
       state: latest
-      disable_excludes: kubernetes
     with.items:  
       - kubelet
       - kubeadm
