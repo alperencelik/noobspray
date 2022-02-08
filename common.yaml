@@ -22,7 +22,7 @@
     selinux:
       state: disabled
        
-  - name: Install these packages - kubelet kubeadm kubectl
+  - name: Install kube binaries
     yum:
       name: "{{ item }}"
       state: latest
