@@ -14,11 +14,11 @@
       name: containerd.io
       state: present
       
-   - name: Enable service httpd and ensure it is not masked
-     systemd:
-       name: containerd
-       enabled: yes     
-       state: started
+  - name: Enable service containerd
+    systemd:
+      name: containerd
+      enabled: yes     
+      state: started
 
   - name: Download nerdctl
     get_url:
