@@ -17,18 +17,3 @@
     copy:
       src: kubernetes.repo
       dest: /etc/yum.repos.d/kubernetes.repo
-      
-  - name: Create file for modules to install
-    copy:
-      dest: /etc/modules-load.d/containerd.conf
-      content: |
-        overlay
-        br_netfilter
-   
-  - name: Add kernel modules 
-    modprobe:
-      name: "{{ item }}"
-      state: present
-    with_items:
-    - overlay
-    - br_netfilter
