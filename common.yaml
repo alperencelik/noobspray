@@ -21,13 +21,5 @@
   - name: Disabling SELinux state
     selinux:
       state: disabled
-       
-  - name: install kube binaries
-    yum:
-      name: "{{ package }}"
-      state: latest
-    with.packages:  
-      - kubelet
-      - kubeadm
-      - kubectl
+
 
