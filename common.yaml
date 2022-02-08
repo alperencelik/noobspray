@@ -27,3 +27,14 @@
     reboot:
       reboot_timeout: 3600
     when: selinux_status is changed
+    
+  - name: Install kube packages
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+        - kubelet
+        - kubeadm
+        - kubectl
+      state: latest
+      disable_excludes: kubernetes
