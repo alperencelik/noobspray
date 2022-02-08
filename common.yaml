@@ -24,9 +24,9 @@
        
   - name: install kube binaries
     yum:
-      name: "{{ item }}"
+      name: "{{ package }}"
       state: latest
-    with.items:  
+    with.packages:  
       - kubelet
       - kubeadm
       - kubectl
