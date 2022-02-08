@@ -2,8 +2,8 @@
 
 
 [master]
-new-vm ansible_user=root ansible_host=10.0.0.21
+test-machine ansible_user=root ansible_host=10.0.0.19
 
 [worker]
+new-vm ansible_user=root ansible_host=10.0.0.21
 
-test-machine ansible_user=root ansible_host=10.0.0.19
