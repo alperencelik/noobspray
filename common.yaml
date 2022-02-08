@@ -1,1 +1,34 @@
-
+---
+- name: Install kubernetes components 
+  hosts: all
+  remote_user: root
+  
+  tasks:
+  - name: Remove swapfile from /etc/fstab
+    mount:
+      name: "{{ item }}"
+      fstype: swap
+      state: absent
+    with_items:
+      - swap
+      - none
+      
+  - name: Copy kubernetes repo
+    copy:
+      src: kubernetes.repo
+      dest: /etc/yum.repos.d/kubernetes.repo
+      
+  - name: Create file for modules to install
+    copy:
+      dest: /etc/modules-load.d/containerd.conf
+      content: |
+        overlay
+        br_netfilter
+   
+  - name: Add kernel modules 
+    modprobe:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - overlay
+    - br_netfilter
