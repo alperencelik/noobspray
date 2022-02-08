@@ -10,7 +10,7 @@
       dest: /etc/yum.repos.d/docker-ce.repo
       
       
-  - name: Creating a file with content
+  - name: Create file for modules to install
     copy:
       dest: /etc/modules-load.d/containerd.conf
       content: |
@@ -24,6 +24,14 @@
     with_items:
     - overlay
     - br_netfilter
+    
+  - name: Creating a file with content
+    copy:
+      dest: /etc/sysctl.d/99-kubernetes-cri.conf
+      content: |
+        net.bridge.bridge-nf-call-iptables  = 1
+        net.ipv4.ip_forward                 = 1
+        net.bridge.bridge-nf-call-ip6tables = 1
 
 
   - name: Install containerd
