@@ -13,4 +13,9 @@
     yum_repository:
       name: docker
       description: docker-ce-.repo
-      baseurl: https://download.docker.com/linux/centos/docker-ce.repo    
+      baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+      
+  - name: Install containerd
+    yum:
+      name: containerd.io
+      state: present
