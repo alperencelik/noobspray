@@ -10,13 +10,12 @@
       dest: /etc/yum.repos.d/docker-ce.repo
       
       
-  - name: add lines
-    lineinfile: 
-      dest: /etc/modules-load.d/containerd.conf
-      line: '{{ item }}'
-    with_items:
-    - 'overlay'
-    - 'br_netfilter'      
+  - name: Creating a file with content
+    copy:
+      dest: "/your path"
+      content: |
+        overlay
+        br_netfilter     
 
   - name: Install containerd
     yum:
