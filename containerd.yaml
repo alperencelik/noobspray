@@ -12,7 +12,7 @@
       
   - name: Creating a file with content
     copy:
-      dest: "/your path"
+      dest: /etc/modules-load.d/containerd.conf
       content: |
         overlay
         br_netfilter     
