@@ -25,9 +25,10 @@
   - name: Install these packages - kubelet kubeadm kubectl
     yum:
       name: "{{ item }}"
+      state: latest
+      disable_excludes: kubernetes
     with.items:  
       - kubelet
       - kubeadm
       - kubectl
-      state: latest
-      disable_excludes: kubernetes
+
