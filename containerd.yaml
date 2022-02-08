@@ -1,6 +1,8 @@
 ---
-- hosts: all
-
+- name: Install containerd on CentOS
+  hosts: all
+  remote_user: root
+  
 tasks:
 - name: Install yum utils
   yum:
