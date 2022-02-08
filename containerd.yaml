@@ -14,6 +14,11 @@
       name: containerd.io
       state: present
       
+  - name: Copy containerd.config
+    copy:
+      src: config.toml
+      dest: /etc/containerd/config.toml
+      
   - name: Enable service containerd
     systemd:
       name: containerd
