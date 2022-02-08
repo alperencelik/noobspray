@@ -18,9 +18,9 @@
       src: kubernetes.repo
       dest: /etc/yum.repos.d/kubernetes.repo
 
-   - name: Disabling SELinux state
-     selinux:
-       state: disabled
+  - name: Disabling SELinux state
+    selinux:
+      state: disabled
        
    - name: Install these packages - kubelet kubeadm kubectl
     yum:
