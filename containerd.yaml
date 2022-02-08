@@ -3,14 +3,14 @@
   hosts: all
   remote_user: root
   
-tasks:
-- name: Install yum utils
-  yum:
-    name: yum-utils
-    state: present
+  tasks:
+  - name: Install yum utils
+    yum:
+      name: yum-utils
+      state: present
     
-- name: Add repository
-  yum_repository:
-    name: docker
-    description: docker-ce-.repo
-    baseurl: https://download.docker.com/linux/centos/docker-ce.repo    
+  - name: Add repository
+    yum_repository:
+      name: docker
+      description: docker-ce-.repo
+      baseurl: https://download.docker.com/linux/centos/docker-ce.repo    
