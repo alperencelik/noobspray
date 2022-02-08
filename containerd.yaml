@@ -15,7 +15,15 @@
       dest: /etc/modules-load.d/containerd.conf
       content: |
         overlay
-        br_netfilter     
+        br_netfilter
+   
+  - modprobe:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - overlay
+    - br_netfilter
+
 
   - name: Install containerd
     yum:
