@@ -26,5 +26,5 @@
       dest: /tmp/nerdctl.tar.gz
   - name: Extract foo.tgz into /var/lib/foo
     unarchive:
-    src: /tmp/nerdctl.tar.gz
-    dest: /usr/local/bin
+      src: /tmp/nerdctl.tar.gz
+      dest: /usr/local/bin
