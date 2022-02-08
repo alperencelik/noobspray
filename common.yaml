@@ -17,3 +17,7 @@
     copy:
       src: kubernetes.repo
       dest: /etc/yum.repos.d/kubernetes.repo
+
+   - name: Disabling SELinux state
+     selinux:
+       state: disabled
