@@ -24,3 +24,7 @@
     get_url:
       url: https://github.com/containerd/nerdctl/releases/download/v0.16.1/nerdctl-0.16.1-linux-amd64.tar.gz
       dest: /tmp/nerdctl.tar.gz
+  - name: Extract foo.tgz into /var/lib/foo
+    unarchive:
+    src: /tmp/nerdctl.tar.gz
+    dest: /usr/local/bin
