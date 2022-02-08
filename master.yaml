@@ -11,6 +11,14 @@
     ansible.builtin.lineinfile:
       path: /etc/environment
       line: KUBECONFIG="/etc/kubernetes/admin.conf"
+   
+  - name: Start cluster by kubeadm
+    shell: export KUBECONFIG="/etc/kubernetes/admin.conf"
     
+  - name: Start cluster by kubeadm
+    shell: kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml && kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
 
-
+  - name: Generate join command
+    command: kubeadm token create --print-join-command
+    register: kubeadm_join
+    debug: var=kubeadm_join.stdout
