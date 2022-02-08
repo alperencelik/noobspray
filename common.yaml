@@ -37,3 +37,10 @@
         - kubeadm
         - kubectl
       state: latest
+      
+      
+  - name: Enable kubelet
+    systemd:
+      name: kubelet
+      state: started
+      enabled: yes
