@@ -21,5 +21,6 @@
   - name: Generate join command
     shell: kubeadm token create --print-join-command > /tmp/kubeadm-join.sh
     register: kubeadm_join
+    ignore_errors: True
   #  debug: var=kubeadm_join.stdout
 
