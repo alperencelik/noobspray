@@ -14,17 +14,19 @@
   - name: Start cluster by kubeadm
     shell: kubeadm init --pod-network-cidr=192.168.0.0/16
     when: port.stdout == ""
+    register: init_cluster
 
   - name: Add a line to a file 
     ansible.builtin.lineinfile:
       path: /etc/environment
       line: KUBECONFIG="/etc/kubernetes/admin.conf"
    
-  - name: Start cluster by kubeadm
+  - name: Export kubeconfig to create resources
     shell: export KUBECONFIG="/etc/kubernetes/admin.conf"
     
   - name: Start cluster by kubeadm
     shell: kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml && kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
+    when: init_cluster is not skipped
 
   - name: Generate join command
     shell: kubeadm token create --print-join-command > /tmp/kubeadm-join.sh
