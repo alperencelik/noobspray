@@ -5,7 +5,9 @@
 
   tasks:
     - name: Transfer file from ServerA to ServerB
-      synchronize:
+      copy:
         src: /tmp/kubeadm-join.sh
         dest: /tmp/kubeadm-join.sh
-      delegate_to: "{{ inventory_hostname }}"
+
+    - name: Join the node to cluster
+      command: sh /tmp/kubeadm-join.sh

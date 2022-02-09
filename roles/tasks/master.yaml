@@ -9,8 +9,6 @@
     shell: ss -tulnp | grep 6443
     register: port
 
-
-
   - name: Start cluster by kubeadm
     shell: kubeadm init --pod-network-cidr=192.168.0.0/16
     when: port.stdout == ""
@@ -32,10 +30,10 @@
     shell: kubeadm token create --print-join-command > /tmp/kubeadm-join.sh
     register: kubeadm_join
 
-  - name: Fetch join.sh 
+  - name: Fetch join.sh ( copy from master to ansible host)
     fetch:
       src: /tmp/kubeadm-join.sh
-      dest: /root/kubeadm-join.sh
+      dest: /tmp/kubeadm-join.sh
       flat: yes
-  #  debug: var=kubeadm_join.stdout
+
 
