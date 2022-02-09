@@ -6,6 +6,7 @@
   tasks:
   - name: Start cluster by kubeadm
     shell: kubeadm init --pod-network-cidr=192.168.0.0/16
+    ignore_errors: True
     
   - name: Add a line to a file 
     ansible.builtin.lineinfile:
@@ -21,6 +22,6 @@
   - name: Generate join command
     shell: kubeadm token create --print-join-command > /tmp/kubeadm-join.sh
     register: kubeadm_join
-    ignore_errors: True
+    
   #  debug: var=kubeadm_join.stdout
 
