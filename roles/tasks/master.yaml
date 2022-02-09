@@ -19,6 +19,7 @@
     shell: kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml && kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
 
   - name: Generate join command
-    command: kubeadm token create --print-join-command
+    shell: kubeadm token create --print-join-command > /tmp/kubeadm-join.sh
     register: kubeadm_join
-    debug: var=kubeadm_join.stdout
+  #  debug: var=kubeadm_join.stdout
+

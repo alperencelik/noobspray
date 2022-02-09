@@ -1,0 +1,11 @@
+---
+- name: Playbook to run only worker nodes.
+  hosts: worker
+  remote_user: root
+
+  tasks:
+    - name: Transfer file from ServerA to ServerB
+      synchronize:
+        src: /tmp/kubeadm-join.sh
+        dest: /tmp/kubeadm-join.sh
+      delegate_to: {{ inventory_hostname == master }}
