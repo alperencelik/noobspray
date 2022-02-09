@@ -31,6 +31,10 @@
   - name: Generate join command
     shell: kubeadm token create --print-join-command > /tmp/kubeadm-join.sh
     register: kubeadm_join
-    
+
+  - name: Fetch join.sh 
+    fetch:
+      src: /tmp/kubeadm-join.sh
+      dest: /tmp/kubeadm-join.sh
   #  debug: var=kubeadm_join.stdout
 
