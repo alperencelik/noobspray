@@ -36,5 +36,6 @@
     fetch:
       src: /tmp/kubeadm-join.sh
       dest: /root/kubeadm-join.sh
+      flat: yes
   #  debug: var=kubeadm_join.stdout
 
