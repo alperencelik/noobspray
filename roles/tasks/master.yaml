@@ -4,10 +4,17 @@
   remote_user: root
   
   tasks:
+
+  - name: Check port 6443
+    shell: ss -tulnp | grep 6443
+    register: port
+
+
+
   - name: Start cluster by kubeadm
     shell: kubeadm init --pod-network-cidr=192.168.0.0/16
-    ignore_errors: True
-    
+    when: port.stdout == ""
+
   - name: Add a line to a file 
     ansible.builtin.lineinfile:
       path: /etc/environment
