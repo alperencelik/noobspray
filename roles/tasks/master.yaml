@@ -35,6 +35,6 @@
   - name: Fetch join.sh 
     fetch:
       src: /tmp/kubeadm-join.sh
-      dest: /tmp/kubeadm-join.sh
+      dest: /root/kubeadm-join.sh
   #  debug: var=kubeadm_join.stdout
 
