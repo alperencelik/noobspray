@@ -1,6 +1,6 @@
 ---
-- name: Install kubernetes components 
-  hosts: all
+- name: Install helm  
+  hosts: master
   remote_user: root
   
   tasks:
