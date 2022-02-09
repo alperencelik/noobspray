@@ -8,6 +8,7 @@
   - name: Check port 6443
     shell: ss -tulnp | grep 6443
     register: port
+    ignore_errors: true
 
   - name: Start cluster by kubeadm
     shell: kubeadm init --pod-network-cidr=192.168.0.0/16
