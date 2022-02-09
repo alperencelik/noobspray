@@ -1,1 +1,19 @@
+- name: Get helm tar
+  get_url:
+    url: https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz
+    dest: /tmp/helm-v3.8.0-linux-amd64.tar.gz
+    checksum: sha256:https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz.sha256sum
 
+- name: Extract helm tar
+  unarchive:
+    src: /tmp/helm-v3.8.0-linux-amd64.tar.gz
+    dest: /tmp
+    creates: /tmp/linux-amd64/helm
+    remote_src: yes
+
+- name: Copy helm binary
+  copy:
+    src: /tmp/linux-amd64/helm
+    remote_src: yes
+    dest: /usr/local/bin/helm
+    mode: u+x,g+x,o+x
