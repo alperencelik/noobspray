@@ -8,4 +8,4 @@
       synchronize:
         src: /tmp/kubeadm-join.sh
         dest: /tmp/kubeadm-join.sh
-      delegate_to: {{ inventory_hostname }}
+      delegate_to: "{{ inventory_hostname }}"
