@@ -1,4 +1,5 @@
 ---
+- hosts: all
 - import_playbook: common.yaml
 - import_playbook: containerd.yaml
 - import_playbook: helm.yaml
