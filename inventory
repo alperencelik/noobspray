@@ -2,12 +2,12 @@
 
 
 [master]
-master ansible_user=root ansible_host=10.0.0.14
+master ansible_user=root ansible_host=10.0.0.6
 
 # for now only one worker supported
 
 [worker]
-worker ansible_user=root ansible_host=10.0.0.16
+worker ansible_user=root ansible_host=10.0.0.15
 
 
 [monitoring]
