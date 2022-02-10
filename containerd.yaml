@@ -1,7 +1,6 @@
 ---
-
 - name: Install containerd
-  hosts: master
+  hosts: all
   remote_user: root
 
   tasks:
