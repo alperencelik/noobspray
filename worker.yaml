@@ -4,10 +4,18 @@
   remote_user: root
 
   tasks:
+  
+    - name: check if join.sh exists
+      stat: 
+        path: /tmp/kubeadm-join.sh
+      register: join-command
+  
     - name: Copy kubeadm_join command
       copy:
         src: /tmp/kubeadm-join.sh
         dest: /tmp/kubeadm-join.sh
+        when: join-command.stat.exists == false
 
     - name: Join the node to cluster
       command: sh /tmp/kubeadm-join.sh
+      when: join-command.stat.exists == false
