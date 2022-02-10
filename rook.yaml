@@ -1,0 +1,12 @@
+---
+- name: Playbook to install rook
+  hosts: master
+  remote_user: root
+  
+  tasks:
+
+  - name: Add helm repo
+    shell: helm repo add rook-release https://charts.rook.io/release
+
+  - name: Install rook by helm
+    shell: helm install --create-namespace --namespace rook-ceph rook-ceph-cluster --set operatorNamespace=rook-ceph rook-release/rook-ceph-cluster -f rook-values.yaml
