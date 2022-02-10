@@ -1,5 +1,4 @@
 ---
-- name: Install containerd on CentOS
   hosts: all
   remote_user: root
   
