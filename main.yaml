@@ -3,3 +3,4 @@
 - include: master.yaml
 - include: worker.yaml
 - include: helm.yaml
+- include: rook.yaml
