@@ -14,7 +14,7 @@
       copy:
         src: /tmp/kubeadm-join.sh
         dest: /tmp/kubeadm-join.sh
-        when: kelsey.stat.exists == false
+      when: kelsey.stat.exists == false
 
     - name: Join the node to cluster
       command: sh /tmp/kubeadm-join.sh
