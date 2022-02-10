@@ -4,9 +4,14 @@
   remote_user: root
   
   tasks:
+  
+ 
 
   - name: Add helm repo
     shell: helm repo add rook-release https://charts.rook.io/release
+    
+  - name: Install ceph operator
+    shell:  helm install --create-namespace --namespace rook-ceph rook-ceph rook-release/rook-ceph
 
-  - name: Install rook by helm
+  - name: Install ceph cluster
     shell: helm install --create-namespace --namespace rook-ceph rook-ceph-cluster --set operatorNamespace=rook-ceph rook-release/rook-ceph-cluster -f rook-values.yaml
