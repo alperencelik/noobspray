@@ -4,8 +4,11 @@
   remote_user: root
   
   tasks:
-  
- 
+
+  - name: Get nginx ingress controller values
+    copy:
+      src: rook-values.yaml
+      dest: /tmp/rook-values.yaml  
 
   - name: Add helm repo
     shell: helm repo add rook-release https://charts.rook.io/release
@@ -14,4 +17,4 @@
     shell:  helm install --create-namespace --namespace rook-ceph rook-ceph rook-release/rook-ceph
 
   - name: Install ceph cluster
-    shell: helm install --create-namespace --namespace rook-ceph rook-ceph-cluster --set operatorNamespace=rook-ceph rook-release/rook-ceph-cluster -f rook-values.yaml
+    shell: helm install --create-namespace --namespace rook-ceph rook-ceph-cluster --set operatorNamespace=rook-ceph rook-release/rook-ceph-cluster -f /tmp/rook-values.yaml
