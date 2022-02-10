@@ -9,3 +9,7 @@ master ansible_user=root ansible_host=10.0.0.14
 [worker]
 worker ansible_user=root ansible_host=10.0.0.16
 
+
+[monitoring]
+monitoring ansible_user=root ansible_host=10.0.0.21
+
