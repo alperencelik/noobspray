@@ -1,4 +1,10 @@
 ---
+
+- name: Install helm  
+  hosts: master
+  remote_user: root
+
+  tasks:
   - name: Add repo
     get_url:
       url: https://download.docker.com/linux/centos/docker-ce.repo
