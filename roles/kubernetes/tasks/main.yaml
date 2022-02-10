@@ -1,7 +1,7 @@
 ---
 - hosts: all
-- import_playbook: common.yaml
-- import_playbook: containerd.yaml
-- import_playbook: helm.yaml
-- import_playbook: master.yaml
-- import_playbook: worker.yaml
+  - import_playbook: common.yaml
+  - import_playbook: containerd.yaml
+  - import_playbook: helm.yaml
+  - import_playbook: master.yaml
+  - import_playbook: worker.yaml
