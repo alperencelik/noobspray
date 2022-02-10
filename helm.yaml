@@ -1,6 +1,6 @@
 ---
 - name: Install helm  
-  hosts: all
+  hosts: master
   remote_user: root
   
   tasks:
