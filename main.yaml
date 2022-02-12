@@ -11,5 +11,9 @@
 - hosts: worker
   roles:
     - role: worker
+    
+- hosts: master
+  roles:
+    - role: helm
 
 
