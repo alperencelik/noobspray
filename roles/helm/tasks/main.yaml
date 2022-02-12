@@ -1,9 +1,4 @@
----
-- name: Install helm  
-  hosts: master
-  remote_user: root
-  
-  tasks:
+
   - name: Get helm tar
     get_url:
       url: https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz
