@@ -1,1 +1,11 @@
 #Deploy redis
+
+- name: Add redis repo
+  kubernetes.core.helm_repository:
+    name: bitnami
+    repo_url: https://charts.bitnami.com/bitnami
+    
+- name: Get redis values
+  copy:
+    src: redis-values.yaml
+    dest: /tmp/redis-values.yaml
