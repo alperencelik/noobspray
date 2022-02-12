@@ -9,3 +9,12 @@
   copy:
     src: redis-values.yaml
     dest: /tmp/redis-values.yaml
+    
+- name: Install redis via helm
+  kubernetes.core.helm: 
+    name: redis
+    namespace: redis
+    chart_ref: bitnami/redis
+    create_namespace: yes
+    values_files:
+      - /tmp/redis-values.yaml
