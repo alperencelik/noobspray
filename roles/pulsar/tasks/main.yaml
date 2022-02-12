@@ -1,5 +1,10 @@
 # To deploy pulsar via helm 
 
+- name: Add pulsar repo
+  kubernetes.core.helm_repository:
+    name: apache
+    repo_url: https://pulsar.apache.org/charts
+    
 - name: Get pulsar values
   copy:
     src: pulsar-values.yaml
