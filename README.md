@@ -1,6 +1,9 @@
 # noobspray
 A simple playbook to install kubernetes via ansible. Inspired by kubespray
 
+
+
+
 *Usage* 
 
 Clone this repository
