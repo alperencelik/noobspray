@@ -1,10 +1,4 @@
----
-- name: Playbook to run only worker nodes.
-  hosts: worker, monitoring
-  remote_user: root
 
-  tasks:
-  
     - name: check if join.sh exists
       stat: 
         path: /tmp/kubeadm-join.sh
