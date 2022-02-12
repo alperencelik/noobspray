@@ -1,9 +1,4 @@
----
-- name: Install containerd
-  hosts: all
-  remote_user: root
 
-  tasks:
   - name: Add repo
     get_url:
       url: https://download.docker.com/linux/centos/docker-ce.repo
