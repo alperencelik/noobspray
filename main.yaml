@@ -1,6 +1,21 @@
-- include: containerd.yaml
-- include: common.yaml
-- include: master.yaml
-- include: worker.yaml
-- include: helm.yaml
-- include: rook.yaml
+---
+- hosts: all
+  roles:
+    - role: containerd
+
+---
+- hosts: all
+  roles:
+    - role: common
+
+---
+- hosts: master
+  roles:
+    - role: master
+
+---
+- hosts: worker
+  roles:
+    - role: worker
+
+
