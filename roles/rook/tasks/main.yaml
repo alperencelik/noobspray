@@ -12,7 +12,7 @@
   - name: Install rook-ceph chart
     kubernetes.core.helm:
       name: rook
-      namespace: storage
+      namespace: rook-ceph
       chart_ref: rook-release/rook-ceph
       create_namespace: yes
 
