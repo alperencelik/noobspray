@@ -5,3 +5,5 @@ controller:
       http: 80
       https: 443
   kind: DaemonSet
+  
+  # master node have taint so add toleration for master node.
