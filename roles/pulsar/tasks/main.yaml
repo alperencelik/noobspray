@@ -2,8 +2,8 @@
 
 - name: Get pulsar values
   copy:
-    src: prometheus-values.yaml
-    dest: /tmp/prometheus-values.yaml
+    src: pulsar-values.yaml
+    dest: /tmp/pulsar-values.yaml
 
 - name: Install pulsar chart
   kubernetes.core.helm: apache/pulsar
