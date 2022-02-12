@@ -5,7 +5,7 @@
 master ansible_user=root ansible_host=10.0.0.105
 
 [master:vars]
-ansible_python_interpreter=/usr/bin/python3
+#ansible_python_interpreter=/usr/bin/python3
 
 
 [worker]
