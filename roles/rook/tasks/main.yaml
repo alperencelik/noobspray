@@ -21,6 +21,5 @@
       name: rook
       namespace: storage
       chart_ref: rook-release/rook-ceph-cluster
-      create_namespace: yes
       values_files:
         - /tmp/rook-values.yaml
