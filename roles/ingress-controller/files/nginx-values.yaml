@@ -2,7 +2,7 @@ controller:
   hostPort:
     enabled: true
     ports:
-      http: 8080
+      http: 80
       https: 443
   kind: DaemonSet
   
