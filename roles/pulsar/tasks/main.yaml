@@ -15,7 +15,7 @@
   kubernetes.core.helm: 
     name: pulsar
     namespace: pulsar
-   chart_ref: apache/pulsar
+    chart_ref: apache/pulsar
     create_namespace: yes
     values_files:
       - /tmp/pulsar-values.yaml
