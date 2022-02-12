@@ -1,1 +1,19 @@
-
+  - name: Get rook values
+    copy:
+      src: rook-values.yaml
+      dest: /tmp/rook-values.yaml  
+      
+ 
+  - name: Add rook repo
+    kubernetes.core.helm_repository:
+      name: rook-release
+      repo_url: https://charts.rook.io/release
+   
+  - name: Install rook chart
+    kubernetes.core.helm:
+      name: rook
+      namespace: storage
+      chart_ref: rook-release/rook-ceph
+      create_namespace: yes
+      values_files:
+        - /tmp/rook-values.yaml
