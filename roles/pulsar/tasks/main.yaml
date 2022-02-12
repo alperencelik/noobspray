@@ -16,7 +16,7 @@
     dest: /tmp/prepare-helm.sh
     
 - name: Apply .sh
-  shell: ./tmp/prepare-helm.sh -n pulsar -k pulsar-release -c 
+  shell: bash /tmp/prepare-helm.sh -n pulsar -k pulsar-release -c 
 
 
 #- name: Install pulsar chart via helm
@@ -29,4 +29,4 @@
 #      - /tmp/pulsar-values.yaml
 
 - name:
-  shell: helm install --values /tmp/pulsar-values.yaml --set initialize=true --namespace pulsar pulsar-release apache/pulsar
+  shell: helm install --values pulsar-values.yaml --set initialize=true --namespace pulsar pulsar-release apache/pulsar
