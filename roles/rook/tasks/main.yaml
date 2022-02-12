@@ -19,7 +19,7 @@
   - name: Install rook-ceph-cluster chart
     kubernetes.core.helm:
       name: rook
-      namespace: storage
+      namespace: rook-ceph
       chart_ref: rook-release/rook-ceph-cluster
       values_files:
         - /tmp/rook-values.yaml
