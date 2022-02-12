@@ -12,9 +12,9 @@ git clone https://github.com/alperencelik/noobspray.git
 
 Edit the inventory file 
 
-Run the command
+To create kubernetes cluster
 
-ansible-playbook main.yaml
+ansible-playbook kubernetes.yaml
 
 Then take a coffee break until your cluster go up and running.
 
