@@ -1,1 +1,15 @@
 # To deploy pulsar via helm 
+
+- name: Get pulsar values
+  copy:
+    src: prometheus-values.yaml
+    dest: /tmp/prometheus-values.yaml
+
+- name: Install pulsar chart
+  kubernetes.core.helm: apache/pulsar
+    name: pulsar
+    namespace: pulsar
+    chart_ref: 
+    create_namespace: yes
+    values_files:
+      - /tmp/pulsar-values.yaml
