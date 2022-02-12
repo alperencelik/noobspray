@@ -5,7 +5,7 @@
     src: pulsar-values.yaml
     dest: /tmp/pulsar-values.yaml
 
-- name: Install pulsar chart
+- name: Install pulsar chart via helm
   kubernetes.core.helm: 
     name: pulsar
     namespace: pulsar
