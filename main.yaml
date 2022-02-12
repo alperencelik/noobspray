@@ -16,4 +16,8 @@
   roles:
     - role: helm
 
+- hosts: master
+  roles:
+    - role: pulsar
+
 
