@@ -6,10 +6,10 @@
       dest: /tmp/pulsar-values.yaml
 
   - name: Install pulsar chart
-    kubernetes.core.helm: apache/pulsar
+    kubernetes.core.helm: 
       name: pulsar
       namespace: pulsar
-      chart_ref: 
+      chart_ref: apache/pulsar
       create_namespace: yes
       values_files:
       - /tmp/pulsar-values.yaml
