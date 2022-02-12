@@ -3,17 +3,14 @@
   roles:
     - role: containerd
 
----
 - hosts: all
   roles:
     - role: common
 
----
 - hosts: master
   roles:
     - role: master
 
----
 - hosts: worker
   roles:
     - role: worker
