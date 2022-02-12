@@ -17,6 +17,6 @@
     namespace: pulsar
     chart_ref: apache/pulsar
     create_namespace: yes
-    values_files:
-      - /tmp/pulsar-values.yaml
+#    values_files:
+#      - /tmp/pulsar-values.yaml
 
