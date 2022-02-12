@@ -2,9 +2,6 @@
 - hosts: all
   roles:
     - role: containerd
-
-- hosts: all
-  roles:
     - role: common
 
 - hosts: master
