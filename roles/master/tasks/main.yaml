@@ -1,9 +1,3 @@
----
-- name: Playbook to run only master nodes.
-  hosts: master
-  remote_user: root
-  
-  tasks:
 
   - name: Check port 6443
     shell: ss -tulnp | grep 6443
