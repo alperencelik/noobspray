@@ -1,12 +1,16 @@
 #deploy nginx
 
-- name: Get nginx ingress controller values
+- name: Copy nginx ingress controller values
   copy:
     src: nginx-values.yaml
     dest: /tmp/nginx-values.yaml
+
+- name: Add nginx-ingress-controller helm repo
+  kubernetes.core.helm_repository:
+    name: ingress-nginx
+    repo_url: https://kubernetes.github.io/ingress-nginx
     
-    
-- name: Install nginx chart
+- name: Install nginx helm chart
   kubernetes.core.helm:
     name: ingress-nginx
     namespace: ingress-nginx
