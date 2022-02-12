@@ -9,11 +9,18 @@
       name: rook-release
       repo_url: https://charts.rook.io/release
    
-  - name: Install rook chart
+  - name: Install rook-ceph chart
     kubernetes.core.helm:
       name: rook
       namespace: storage
       chart_ref: rook-release/rook-ceph
+      create_namespace: yes
+
+  - name: Install rook-ceph-cluster chart
+    kubernetes.core.helm:
+      name: rook
+      namespace: storage
+      chart_ref: rook-release/rook-ceph-cluster
       create_namespace: yes
       values_files:
         - /tmp/rook-values.yaml
