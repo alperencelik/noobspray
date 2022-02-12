@@ -1,3 +1,17 @@
+initialize: true
+
+extra:
+  # Pulsar proxy
+  proxy: true
+  # Bookkeeper auto-recovery
+  autoRecovery: false
+  # Pulsar dashboard
+  # Deprecated
+  # Replace pulsar-dashboard with pulsar-manager
+  dashboard: true
+  # pulsar manager
+  pulsar_manager: true
+
 volumes:
   persistence: false
 
