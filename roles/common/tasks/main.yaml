@@ -1,9 +1,4 @@
----
-- name: Install kubernetes components 
-  hosts: all
-  remote_user: root
-  
-  tasks:
+
   - name: Remove swapfile from /etc/fstab
     mount:
       name: "{{ item }}"
