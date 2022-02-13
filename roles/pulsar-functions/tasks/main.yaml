@@ -1,0 +1,19 @@
+- name: Get redis-sink.yaml
+  get_url:
+    url: https://gitlab.com/alperencelik58/pulsar-challenge/-/raw/main/axon_pulsar_functions/axon_pulsar_functions/axon_edge_functions/resources/redis_sink.yaml
+    dest: /tmp/redis-sink.yaml.j2
+    
+ - name: Template a file
+   template:
+    src: /tmp/redis-sink.yaml.j2
+    dest: /tmp/redis-sink.yaml
+    
+    
+- name: Wait for pulsar-toolset pod
+  shell: kubectl get pod -n pulsar pulsar-toolset-0
+  register: pod_status
+  until: pod_status.stdout.find("Running") != -1
+  
+- name: Copy redis-sink.yaml to pod
+  shell: kubectl cp /tmp/redis-sink.yaml pulsar-toolset-0:/tmp/redis-sink.yaml -n pulsar && 
+  
