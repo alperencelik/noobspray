@@ -26,12 +26,12 @@
   
   
 - name: Copy firsfunc.yaml to pod and run 
-  shell: kubectl cp /tmp/firstfunc.yaml pulsar-toolset-0:/tmp/firstfunc.yaml -n pulsar && kubectl exec -it -n pulsar pulsar-toolset-0 -- /pulsar/bin/pulsar-admin functions localrun --function-config-file /tmp/firstfunc.yaml
+  shell: kubectl cp /tmp/firstfunc.yaml pulsar-toolset-0:/tmp/firstfunc.yaml -n pulsar && kubectl exec -it -n pulsar pulsar-toolset-0 -- /pulsar/bin/pulsar-admin functions localrun --function-config-file /tmp/firstfunc.yaml > /dev/null 2>&1 &
   
 - name: Copy secondfunc.yaml to pod and run 
-  shell: kubectl cp /tmp/secondfunc.yaml pulsar-toolset-0:/tmp/secondfunc.yaml -n pulsar && kubectl exec -it -n pulsar pulsar-toolset-0 -- /pulsar/bin/pulsar-admin functions localrun --function-config-file /tmp/secondfunc.yaml  
+  shell: kubectl cp /tmp/secondfunc.yaml pulsar-toolset-0:/tmp/secondfunc.yaml -n pulsar && kubectl exec -it -n pulsar pulsar-toolset-0 -- /pulsar/bin/pulsar-admin functions localrun --function-config-file /tmp/secondfunc.yaml > /dev/null 2>&1 &
   
   
 - name: Copy redis-sink.yaml to pod and run 
-  shell: kubectl cp /tmp/redis-sink.yaml pulsar-toolset-0:/pulsar/connectors/redis-sink.yaml -n pulsar &&  kubectl exec -it -n pulsar pulsar-toolset-0 -- /pulsar/bin/pulsar-admin sinks localrun --sink-config-file /pulsar/connectors/redis-sink.yaml
+  shell: kubectl cp /tmp/redis-sink.yaml pulsar-toolset-0:/pulsar/connectors/redis-sink.yaml -n pulsar &&  kubectl exec -it -n pulsar pulsar-toolset-0 -- /pulsar/bin/pulsar-admin sinks localrun --sink-config-file /pulsar/connectors/redis-sink.yaml > /dev/null 2>&1 &
   
