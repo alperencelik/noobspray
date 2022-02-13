@@ -1,7 +1,7 @@
 name: "secondfunction"
 tenant: "public"
 namespace: "default"
-jar: /tmp/pulsar/axon_edge_functions.nar
+jar: /tmp/functions.nar
 className: "com.axon_networks.pulsar.secondfunction"
 inputs:
   - second-function
