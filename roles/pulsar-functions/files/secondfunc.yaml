@@ -1,0 +1,13 @@
+name: "secondfunction"
+tenant: "public"
+namespace: "default"
+jar: /tmp/pulsar/axon_edge_functions.nar
+className: "com.axon_networks.pulsar.secondfunction"
+inputs:
+  - second-function
+userConfig:
+  "OutTopics": "final"
+  "DebugJson": "true"
+
+parallelism: 1
+autoAck: true
