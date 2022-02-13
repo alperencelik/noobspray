@@ -1,5 +1,6 @@
 # To deploy pulsar via helm 
 
+
 - name: Add pulsar repo
   kubernetes.core.helm_repository:
     name: apache
@@ -9,8 +10,8 @@
   copy:
     src: pulsar-values.yaml
     dest: /tmp/pulsar-values.yaml
-
-
+    
+     
 - name: Install pulsar chart via helm
   kubernetes.core.helm: 
     name: pulsar
@@ -20,3 +21,6 @@
     values_files:
       - /tmp/pulsar-values.yaml
 
+
+  
+  
