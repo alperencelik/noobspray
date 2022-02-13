@@ -1,1 +1,15 @@
+name: "RedisSink"
+tenant: "public"
+namespace: "default"
+archive: /tmp/pulsar-io-redis-2.9.1.nar
+className: "org.apache.pulsar.io.redis.sink.RedisSink"
+inputs:
+  - final
+parallelism: 1
+autoAck: true
+configs:
+  redisHosts: "redis-master.redis:6379"
+  redisPassword: "rxkXWswKIm"
+  redisDatabase: 0
+  clientMode: "standalone"
 
