@@ -11,19 +11,25 @@
     src: pulsar-values.yaml
     dest: /tmp/pulsar-values.yaml
     
+- name: Get pulsar helm release sh
+  copy:
+    src: prepare-helm.sh
+    dest: /tmp/prepare-helm.sh    
+    
 - name:
-  shell: 
+  shell: chmod +x /tmp/prepare-helm.sh && /tmp/prepare-helm.sh -n pulsar -k pulsar -c 
     
      
-- name: Install pulsar chart via helm
-  kubernetes.core.helm: 
-    name: pulsar
-    namespace: pulsar
-    chart_ref: apache/pulsar
-    create_namespace: yes
-    values_files:
-      - /tmp/pulsar-values.yaml
+#- name: Install pulsar chart via helm
+#  kubernetes.core.helm: 
+#    name: pulsar
+#    namespace: pulsar
+#    chart_ref: apache/pulsar
+#    create_namespace: yes
+#    values_files:
+#      - /tmp/pulsar-values.yaml
 
-
+- name:
+  shell: helm install --values /tmp/pulsar-values.yaml --set initialize=true --namespace pulsar pulsar apache/pulsar
   
   
