@@ -1,8 +1,4 @@
-- name: Get redis-sink.yaml
-  get_url:
-    url: https://gitlab.com/alperencelik58/pulsar-challenge/-/raw/main/axon_pulsar_functions/axon_pulsar_functions/axon_edge_functions/resources/redis_sink.yaml
-    dest: /tmp/redis-sink.yaml.j2
-    
+  
  - name: Template a file
    template:
     src: /tmp/redis-sink.yaml.j2
