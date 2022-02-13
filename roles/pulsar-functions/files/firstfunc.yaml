@@ -1,7 +1,7 @@
 name: "fistfunc"
 tenant: "public"
 namespace: "default"
-jar: /path/to/.nar
+jar: /tmp/functions.nar
 className: "com.axon_networks.pulsar.firstfunc"
 inputs:
   - "first-function"
