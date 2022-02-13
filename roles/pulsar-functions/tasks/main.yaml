@@ -1,9 +1,18 @@
   
- - name: Template a file
-   template:
-    src: /tmp/redis-sink.yaml.j2
+- name: Template a file
+  template:
+    src: redis-sink.yaml.j2
     dest: /tmp/redis-sink.yaml
+ 
+- name: Copy first func.
+  copy:
+    src: firstfunc.yaml
+    dest: /tmp/firstfunc.yaml
     
+- name: Copy second func.
+  copy:
+    src: secondfunc.yaml
+    dest: /tmp/secondfunc.yaml    
     
 - name: Wait for pulsar-toolset pod
   shell: kubectl get pod -n pulsar pulsar-toolset-0
