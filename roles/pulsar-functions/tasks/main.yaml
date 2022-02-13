@@ -12,12 +12,16 @@
 - name: Copy second func.
   copy:
     src: secondfunc.yaml
-    dest: /tmp/secondfunc.yaml    
+    dest: /tmp/secondfunc.yaml
     
 - name: Wait for pulsar-toolset pod
   shell: kubectl get pod -n pulsar pulsar-toolset-0
   register: pod_status
   until: pod_status.stdout.find("Running") != -1
+  
+- name: Copy .nar files to pod
+  shell: kubectl cp /tmp/pulsar-io-redis-2.9.1.nar pulsar-toolset-0:/tmp/redis.nar -n pulsar && kubectl cp /tmp/functions.nar pulsar-toolset-0:/tmp/functions.nar -n pulsar
+  
   
 - name: Copy firsfunc.yaml to pod and run 
   shell: kubectl cp /tmp/firstfunc.yaml pulsar-toolset-0:/tmp/firstfunc.yaml -n pulsar && /pulsar/bin/pulsar-admin functions localrun --function-config-file /tmp/firstfunc.yaml
