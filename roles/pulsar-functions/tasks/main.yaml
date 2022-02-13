@@ -1,6 +1,8 @@
   
 - name: Template a file
-  template:
+#  template:
+# add values for redis password so use the template module 
+  copy:
     src: redis-sink.yaml.j2
     dest: /tmp/redis-sink.yaml
  
