@@ -30,6 +30,7 @@
 #      - /tmp/pulsar-values.yaml
 
 - name:
-  shell: helm install --values /tmp/pulsar-values.yaml --set initialize=true --namespace pulsar pulsar apache/pulsar
+  shell: helm install  --set initialize=true --namespace pulsar pulsar apache/pulsar
   
+  # --values /tmp/pulsar-values.yaml
   
