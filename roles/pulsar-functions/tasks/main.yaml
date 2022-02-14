@@ -1,3 +1,9 @@
+- name: Transfer release files
+  synchronize:
+    src: /root/pulsar-func-deploy/axon_pulsar_functions/release/pulsar_functions_compose
+    dest: /tmp/release/
+  delegate_to: builder
+
 
 - name: Template a file
 #  template:
