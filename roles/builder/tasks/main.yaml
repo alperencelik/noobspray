@@ -4,6 +4,12 @@
     name: java-1.8.0-openjdk
     state: present
     
+- name: Check if docker installed
+  command: systemctl status docker
+  register: docker_check
+  ignore_errors: yes    
+    
+    
 - name: Get docker sh
   get_url:
     url: https://get.docker.com/
