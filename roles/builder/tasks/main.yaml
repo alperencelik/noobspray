@@ -59,7 +59,7 @@
     dest: //root/pulsar-func-deploy/axon_pulsar_functions/
 
 - name: Change parameters in makefile
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: /root/pulsar-func-deploy/
     regexp: '^all: version build package'
     line: all: version build_local package
