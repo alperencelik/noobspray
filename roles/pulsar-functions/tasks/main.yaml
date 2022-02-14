@@ -2,7 +2,7 @@
   synchronize:
     src: /root/pulsar-func-deploy/axon_pulsar_functions/release/pulsar_functions_compose
     dest: /tmp/release/
-  delegate_to: builder
+  delegate_to: 10.0.0.115 # ip addr  of builder
 
 
 - name: Template a file
