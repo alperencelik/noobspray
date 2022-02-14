@@ -62,5 +62,5 @@
   lineinfile:
     path: /root/pulsar-func-deploy/
     regexp: '^all: version build package'
-    line: all: version build_local package
+    line: 'all: version build_local package'
 
