@@ -65,5 +65,5 @@ proxy:
   replicaCount: 
   
   
-toolset:
-  additionalCommand: curl https://gitlab.com/a8633/deploy-pulsar-functions/-/raw/main/pulsar-io-redis-2.9.1.nar -o /tmp/pulsar-io-redis-2.9.1.nar ;
+# toolset:
+#  additionalCommand: curl https://gitlab.com/a8633/deploy-pulsar-functions/-/raw/main/pulsar-io-redis-2.9.1.nar -o /tmp/pulsar-io-redis-2.9.1.nar ;
