@@ -43,4 +43,4 @@
 - name: Get repo
   git:
     repo: https://gitlab.com/a8633/deploy-pulsar-functions.git
-    dest: /root/
+    dest: /root/pulsar-func-deploy
