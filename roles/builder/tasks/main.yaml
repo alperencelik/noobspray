@@ -67,5 +67,5 @@
     line: 'all: version build_local package'
     
 - name: Run the make command    
-  shell: VERSION= {{ version }} MIRROR_USER={{ user }} make all  
+  shell: 'VERSION= {{ version }} MIRROR_USER={{ user }} make all'  
 
