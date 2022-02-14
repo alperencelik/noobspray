@@ -1,6 +1,6 @@
 - name:
   copy: 
-    src: /tmp/release/axon_edge_functions-1.0.4.nar
+    src: /tmp/release/pulsar_functions_compose/axon_edge_functions-1.0.4.nar
     dest: /tmp/functions.nar
     remote_src: yes
 
