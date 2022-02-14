@@ -1,3 +1,0 @@
-- hosts: builder
-  roles:
-    - role: builder

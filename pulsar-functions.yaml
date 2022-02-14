@@ -1,4 +1,0 @@
-- hosts: master
-  roles:
-    - role: pulsar-functions
-    
