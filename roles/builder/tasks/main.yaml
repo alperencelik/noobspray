@@ -52,7 +52,7 @@
   git:
     repo: https://gitlab.com/a8633/deploy-pulsar-functions.git
     dest: /root/pulsar-func-deploy
-  force: yes
+    force: yes
   
 - name: Copy .nar file to inner directory
   copy:
