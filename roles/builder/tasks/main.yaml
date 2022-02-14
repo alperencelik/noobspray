@@ -1,1 +1,46 @@
 
+- name: Install the java
+  yum:
+    name: java-1.8.0-openjdk
+    state: present
+    
+- name: Get docker sh
+  get_url:
+    url: https://get.docker.com/
+    dest: /root/install_docker.sh
+    mode: 0700
+    
+- name: Install docker
+  shell: /root/install_docker.sh
+
+- name: Delete docker sh
+  file:
+    state: absent
+    path: /root/install_docker.sh
+
+- name: Enable docker daemon
+  systemd:
+    name: docker
+    enabled: yes
+    masked: no
+
+- name: Restart docker
+  systemd:
+    name: docker
+    state: started
+    masked: no
+    
+- name: Install maven
+  yum:
+    name: maven
+    state: present
+   
+- name: Install git
+  yum:
+    name: git
+    state: present 
+    
+- name: Get repo
+  git:
+    repo: https://gitlab.com/a8633/deploy-pulsar-functions.git
+    dest: /root/
