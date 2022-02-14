@@ -1,5 +1,26 @@
 initialize: true
 
+
+components:
+  # zookeeper
+  zookeeper: true
+  # bookkeeper
+  bookkeeper: true
+  # bookkeeper - autorecovery
+  autorecovery: true
+  # broker
+  broker: true
+  # functions
+  functions: true
+  # proxy
+  proxy: true
+  # toolset
+  toolset: true
+  # pulsar manager
+  pulsar_manager: false
+
+
+
 extra:
   # Pulsar proxy
   proxy: true
