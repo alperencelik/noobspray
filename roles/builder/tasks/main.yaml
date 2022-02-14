@@ -62,7 +62,7 @@
 
 - name: Change parameters in makefile
   lineinfile:
-    path: /root/pulsar-func-deploy/
+    path: /root/pulsar-func-deploy/Makefile
     regexp: '^all: version build package'
     line: 'all: version build_local package'
 
