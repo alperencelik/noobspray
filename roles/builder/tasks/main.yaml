@@ -70,9 +70,8 @@
 # - name: Run the make command    
 #  shell: 'VERSION={{ version }} MIRROR_USER={{ user }} make all'  
 
-- name: Get release files from server 
-  ansible.builtin.fetch:
-    src: /root/pulsar-func-deploy/axon_pulsar_functions/release
-    dest: /tmp/release
+- name: Push release files to master server
+  shell: scp -r /root/pulsar-func-deploy/axon_pulsar_functions/release/pulsar_functions_compose root@10.0.0.105:/tmp/release
+  
   
 
