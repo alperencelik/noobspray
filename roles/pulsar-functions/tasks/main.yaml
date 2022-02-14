@@ -1,10 +1,10 @@
-- name: Copy axon_functions as functions
+- name: Copy axon_functions as functions.nar
   copy: 
     src: /tmp/release/pulsar_functions_compose/axon_edge_functions-1.0.4.nar
     dest: /tmp/functions.nar
     remote_src: yes
 
-- name: Copy axon_functions as functions
+- name: Copy pulsar redis sink  as redis.nar
   copy: 
     src: /tmp/release/pulsar_functions_compose/pulsar-io-redis-2.9.1.nar
     dest: /tmp/redis.nar
