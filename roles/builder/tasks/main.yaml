@@ -52,3 +52,15 @@
   git:
     repo: https://gitlab.com/a8633/deploy-pulsar-functions.git
     dest: /root/pulsar-func-deploy
+
+- name: Copy .nar file to inner directory
+  copy:
+    src: /root/pulsar-func-deploy/pulsar-io-redis-2.9.1.nar
+    dest: //root/pulsar-func-deploy/axon_pulsar_functions/
+
+- name: Change parameters in makefile
+  ansible.builtin.lineinfile:
+    path: /root/pulsar-func-deploy/
+    regexp: '^all: version build package'
+    line: all: version build_local package
+
