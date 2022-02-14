@@ -9,9 +9,11 @@
     url: https://get.docker.com/
     dest: /root/install_docker.sh
     mode: 0700
+  when: docker_check.stderr.find('service could not be found') != -1
     
 - name: Install docker
   shell: /root/install_docker.sh
+  when: docker_check.stderr.find('service could not be found') != -1
 
 - name: Delete docker sh
   file:
