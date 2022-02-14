@@ -16,3 +16,6 @@ worker-3 ansible_user=root ansible_host=10.0.0.108
 [monitoring]
 
 
+[builder]
+
+builder ansible_user=root ansible_host= 10.0.0.115
