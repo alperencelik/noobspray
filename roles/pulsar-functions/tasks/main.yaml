@@ -1,3 +1,5 @@
+- name:
+  shell: mv /tmp/axon_edge_functions-1.0.4.nar /tmp/functions.nar
 
 - name: Template a file
 #  template:
