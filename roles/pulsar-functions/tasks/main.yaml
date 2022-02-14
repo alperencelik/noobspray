@@ -33,5 +33,5 @@
   
   
 - name: Copy redis-sink.yaml to pod and run 
-  shell: kubectl cp /tmp/redis-sink.yaml pulsar-broker-0:/pulsar/connectors/redis-sink.yaml -n pulsar &&  kubectl exec -it -n pulsar pulsar-broker-0 -- /pulsar/bin/pulsar-admin sinks localrun --sink-config-file /pulsar/connectors/redis-sink.yaml > /dev/null 2>&1 &
+  shell: kubectl cp /tmp/redis.nar pulsar-broker-0:/pulsar/connectors/redis.nar -n pulsar &&  kubectl exec -it -n pulsar pulsar-broker-0 -- /pulsar/bin/pulsar-admin sinks localrun --sink-config-file /tmp/redis-sink.yaml > /dev/null 2>&1 &
   
