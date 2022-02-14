@@ -63,7 +63,7 @@
 - name: Change makefile
   ansible.builtin.lineinfile:
     path: /root/pulsar-func-deploy/axon_pulsar_functions/Makefile
-    line: "setup.sh"
+    regexp: '*^setup.sh'
     state: absent      
 
 - name: Change parameters in makefile
