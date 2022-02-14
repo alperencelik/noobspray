@@ -71,9 +71,9 @@
 #  shell: 'VERSION={{ version }} MIRROR_USER={{ user }} make all'  
 
 - name: Transfer file from ServerA to ServerB
-    synchronize:
-      src: /tmp/release/
-      dest: /root/pulsar-func-deploy/axon_pulsar_functions/release/pulsar_functions_compose
-    delegate_to: master 
+  synchronize:
+    src: /tmp/release/
+    dest: /root/pulsar-func-deploy/axon_pulsar_functions/release/pulsar_functions_compose
+  delegate_to: master 
   
 
