@@ -1,5 +1,8 @@
 - name:
-  shell: mv /tmp/release/axon_edge_functions-1.0.4.nar /tmp/functions.nar
+  copy: 
+    src: /tmp/release/axon_edge_functions-1.0.4.nar
+    dest: /tmp/functions.nar
+    remote_src: yes
 
 - name: Template a file
 #  template:
