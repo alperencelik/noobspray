@@ -58,6 +58,7 @@
   copy:
     src: /root/pulsar-func-deploy/pulsar-io-redis-2.9.1.nar
     dest: //root/pulsar-func-deploy/axon_pulsar_functions/
+    remote_src: yes
 
 - name: Change parameters in makefile
   lineinfile:
