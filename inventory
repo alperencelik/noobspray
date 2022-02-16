@@ -5,8 +5,6 @@ master ansible_user=root ansible_host=10.0.0.105
 
 [master:vars]
 
-
-
 [worker]
 worker-1 ansible_user=root ansible_host=10.0.0.106
 worker-2 ansible_user=root ansible_host=10.0.0.107
