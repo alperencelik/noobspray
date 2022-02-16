@@ -1,5 +1,4 @@
-
-#  !!! for now only one worker supported !!!
+#  !!! for now only one master supported !!!
 
 [master]
 master ansible_user=root ansible_host=10.0.0.105
@@ -12,4 +11,3 @@ master ansible_user=root ansible_host=10.0.0.105
 worker-1 ansible_user=root ansible_host=10.0.0.106
 worker-2 ansible_user=root ansible_host=10.0.0.107
 worker-3 ansible_user=root ansible_host=10.0.0.108
-
