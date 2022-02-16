@@ -22,7 +22,7 @@ A simple playbook to install kubernetes via ansible. Inspired by kubespray.
 
 ---
 
-Your kubernetes cluster is **three step** far to you. Let's get started.
+Your kubernetes cluster is **three steps** far to you. Let's get started.
 
 1. Clone this repository
 
