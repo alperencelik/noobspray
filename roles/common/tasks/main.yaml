@@ -34,7 +34,7 @@
       state: present
 
   - name: Prevent kube packages from being updated
-    yum_versionlock:
+    community.general.yum_versionlock:
       state: present
       name:
       - kubelet
