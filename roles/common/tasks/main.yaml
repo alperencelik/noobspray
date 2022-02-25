@@ -31,7 +31,7 @@
         - kubelet
         - kubeadm
         - kubectl
-      state: latest
+      state: installed
       
       
   - name: Enable kubelet
