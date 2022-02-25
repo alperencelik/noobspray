@@ -31,7 +31,15 @@
         - kubelet
         - kubeadm
         - kubectl
-      state: installed
+      state: present
+
+  - name: Prevent kube packages from being updated
+    yum_versionlock:
+      state: present
+      name:
+      - kubelet
+      - kubeadm
+      - kubectl
       
       
   - name: Enable kubelet
