@@ -23,6 +23,10 @@
       reboot_timeout: 3600
     when: selinux_status is changed
     
+  - name: Install yum plugin to hold packages in dedicated version
+    yum:
+      name: yum-plugin-versionlock  
+   
   - name: Install kube packages
     yum:
       name: "{{ packages }}"
