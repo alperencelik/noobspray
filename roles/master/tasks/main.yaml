@@ -5,7 +5,7 @@
     ignore_errors: true
 
   - name: Start cluster by kubeadm
-    shell: kubeadm init --pod-network-cidr=192.168.0.0/16 --kubernetes-version=v{{ kube_version }}
+    shell: kubeadm init --pod-network-cidr=192.168.0.0/16 # --kubernetes-version=v{{ kube_version }}
     when: port.stdout == ""
     register: init_cluster
 
