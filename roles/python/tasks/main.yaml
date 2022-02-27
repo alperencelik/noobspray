@@ -4,7 +4,12 @@
   yum:
     name: python3
     state: present
- 
+
+- name: Install pyyaml python package
+  pip:
+    name: setuptools 
+
+
 - name: Install pyyaml python package
   pip:
     name: PyYAML==6.0.0
