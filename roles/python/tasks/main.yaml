@@ -5,7 +5,7 @@
     name: python3
     state: present
 
-- name: Install pyyaml python package
+- name: Install setup tools python package
   pip:
     name: setuptools 
 
