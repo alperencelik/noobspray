@@ -30,7 +30,7 @@ Your kubernetes cluster is **three steps** far to you. Let's get started.
 
 2. Edit the inventory file 
 
-    `vim ansible/inventory`
+    `cd ansible && vim inventory`
 
 3. To create kubernetes cluster run the command
 
