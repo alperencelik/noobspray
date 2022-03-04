@@ -28,7 +28,7 @@ Your kubernetes cluster is **three steps** far to you. Let's get started.
 
     `git clone https://github.com/alperencelik/noobspray.git`
 
-2. Edit the inventory file 
+2. Edit the inventory file which is located on ansible/inventory
 
 3. To create kubernetes cluster run the command
 
