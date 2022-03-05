@@ -31,15 +31,15 @@
       dest: /tmp/kubeadm-join.sh
       flat: yes
       
- - name: add commands to auto complete and alias
-   blockinfile: 
-     state: present
-     insertafter: EOF
-     dest: /root/.bashrc
-     marker: "<!-- ADDED FOR KUBERNETES -->"
-     content: |
-      echo 'source <(kubectl completion bash)'
-      echo 'alias k=kubectl'
-      echo 'complete -F __start_kubectl k'
+  - name: add commands to auto complete and alias
+    blockinfile: 
+      state: present
+      insertafter: EOF
+      dest: /root/.bashrc
+      marker: "<!-- ADDED FOR KUBERNETES -->"
+      content: |
+        echo 'source <(kubectl completion bash)'
+        echo 'alias k=kubectl'
+        echo 'complete -F __start_kubectl k'
 
 
