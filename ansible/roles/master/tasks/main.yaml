@@ -31,6 +31,15 @@
       dest: /tmp/kubeadm-join.sh
       flat: yes
       
+  - name: add services
+    blockinfile: 
+      state: present
+      insertafter: EOF
+      dest: /etc/services
+      content: |
+        alias k=kubectl
+        complete -F __start_kubectl k
 
+        
 
 
