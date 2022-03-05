@@ -30,7 +30,13 @@
       src: /tmp/kubeadm-join.sh
       dest: /tmp/kubeadm-join.sh
       flat: yes
-      
+  
+  - name: Install bashcompletion
+    yum:
+      name: bash-completion
+      state: present
+
+
   - name: Edit .bashrc
     blockinfile: 
       state: present
