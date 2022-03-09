@@ -40,7 +40,7 @@ Then take a coffee break :coffee: until your cluster go up and running.
 
 You can check out this playlist to wait while Kubernetes is being installed.
 
-[![Spotify](https://spotify-github-readme.vercel.app/api/spotify)](https://open.spotify.com/collection/tracks)
+[![Spotify](https://spotify-github-readme.vercel.app/api/spotify)](https://open.spotify.com/playlist/60thxsFj5z789oDsTJiWn9?si=05d65b23455b4fed)
 
 
 </br>
