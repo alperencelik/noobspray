@@ -36,7 +36,12 @@ Your kubernetes cluster is **three steps** far to you. Let's get started.
 
     `ansible-playbook kubernetes.yaml`
 
-Then take a coffee break :coffee: until your cluster go up and running.
+Then take a coffee break :coffee: until your cluster go up and running. 
+
+You can check out this playlist to wait while Kubernetes is being installed.
+
+[![Spotify](https://spotify-github-readme.vercel.app/api/spotify)](https://open.spotify.com/collection/tracks)
+
 
 </br>
 
