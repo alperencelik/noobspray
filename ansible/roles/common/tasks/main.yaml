@@ -7,6 +7,11 @@
     with_items:
       - swap
       - none
+  
+  - name: Stop firewalld
+    systemd:
+    name: firewalld
+    state: stopped
       
   - name: Copy kubernetes repo
     copy:
