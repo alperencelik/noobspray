@@ -1,11 +1,7 @@
 #  !!! for now only one master supported !!!
 
 [master]
-master ansible_user=root ansible_host=10.0.0.105
+master ansible_user=root ansible_host=10.0.0.16
 
-[master:vars]
-#ansible_python_interpreter=/usr/bin/python3
 [worker]
-worker-1 ansible_user=root ansible_host=10.0.0.106
-worker-2 ansible_user=root ansible_host=10.0.0.107
-worker-3 ansible_user=root ansible_host=10.0.0.108
+worker-1 ansible_user=root ansible_host=10.0.0.17

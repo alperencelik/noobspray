@@ -1,1 +1,1 @@
-kube_version: 1.22.7 # not working since the https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64 missing old versions of kube-packages
+kube_version: 1.23.5-0 # not working since the https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64 missing old versions of kube-packages
