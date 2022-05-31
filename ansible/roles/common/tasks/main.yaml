@@ -33,8 +33,8 @@
       name: "{{ packages }}"
     vars:
       packages:
-        - kubelet
-        - kubeadm
+        - kubelet-{{ kube_version }}
+        - kubeadm-{{ kube_version }}
         - kubectl
       state: present
 
