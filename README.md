@@ -22,7 +22,7 @@ A simple playbook to install kubernetes via ansible. Inspired by kubespray.
 
 ---
 
-Your kubernetes cluster is **three steps** far to you. Let's get started.
+Your kubernetes cluster is **three steps** far to you. Let's get started. Also you can specify Kubernetes version in **group_vars/all/main.yaml**.
 
 1. Clone this repository
 
