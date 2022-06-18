@@ -22,14 +22,6 @@ spec:
       requests:
         cpu: 25m
         memory: 32M
-    livenessProbe:
-      httpGet:
-        path: /healthz
-        port: 8081
-    readinessProbe:
-      httpGet:
-        path: /healthz
-        port: 8081
     volumeMounts:
     - mountPath: /etc/nginx
       name: etc-nginx
