@@ -14,11 +14,8 @@ stream {
   upstream kube_apiserver {
     least_conn;
     {% for host in groups['master'] -%}
-    server {{ hostvars[host]['access_ip'] }}:6443;
+    server {{ hostvars[host]['ansible_host'] }}:6443;
     {% endfor -%}
-#    server 10.0.0.151:6443;
-#    server 10.0.0.152:6443;
-#    server 10.0.0.153:6443;
     }
 
   server {
