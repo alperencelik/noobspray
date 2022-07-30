@@ -1,0 +1,10 @@
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: ClusterConfiguration
+kubernetesVersion: {{ kube_version }}
+clusterName: {{ cluster_name }}
+dns:
+  type: CoreDNS
+networking:
+  dnsDomain: {{ dns_domain }}
+  podSubnet: {{ pod_subnet }}  # 192.168.0.0/16 
+  serviceSubnet: {{ service_subnet }} # 10.96.0.0/12 

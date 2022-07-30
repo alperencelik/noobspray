@@ -4,4 +4,4 @@
 master ansible_user=root ansible_host=10.0.0.16
 
 [worker]
-worker-1 ansible_user=root ansible_host=10.0.0.17
+worker-1 ansible_user=root ansible_host=10.0.0.11
