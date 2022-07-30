@@ -4,8 +4,13 @@
     register: port
     ignore_errors: true
 
+  - name: Create kubeadm-config
+    template:
+      src: kubeadm-config.yaml.j2
+      dest: /root/kubeadm-config.yaml
+
   - name: Start cluster by kubeadm
-    shell: kubeadm init --pod-network-cidr=192.168.0.0/16 --kubernetes-version={{ kube_version }}
+    shell: kubeadm init --config /root/kubeadm-config.yaml
     when: port.stdout == ""
     register: init_cluster
 
