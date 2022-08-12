@@ -5,6 +5,5 @@ clusterName: {{ cluster_name }}
 dns:
   type: CoreDNS
 networking:
-  dnsDomain: {{ dns_domain }}
   podSubnet: {{ pod_subnet }}  # 192.168.0.0/16 
   serviceSubnet: {{ service_subnet }} # 10.96.0.0/12 
