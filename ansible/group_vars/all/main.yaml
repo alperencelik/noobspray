@@ -1,5 +1,4 @@
 kube_version: 1.23.5
 cluster_name: rammstein
-dns_domain: alperen.cloud
 pod_subnet: 192.168.0.0/16
 service_subnet: 10.96.0.0/12
