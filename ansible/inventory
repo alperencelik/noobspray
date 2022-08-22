@@ -1,11 +1,11 @@
 #  !!! for now only one master supported !!!
 
 [master]
-master ansible_user=root ansible_host=10.0.0.16
+master ansible_user=root ansible_host=10.0.0.18
+# 10.0.0.32
 
 [worker]
-worker-1 ansible_user=root ansible_host=10.0.0.11
-worker-2 ansible_user=root ansible_host=10.0.0.12
-worker-3 ansible_user=root ansible_host=10.0.0.21
+worker-1 ansible_user=root ansible_host=10.0.0.27
+worker-2 ansible_user=root ansible_host=10.0.0.14
 
 
