@@ -1,5 +1,6 @@
 #  !!! for now only one master supported !!!
-
+#
+#
 [master]
 master ansible_user=root ansible_host=10.0.0.18
 # 10.0.0.32
