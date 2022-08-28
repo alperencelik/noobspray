@@ -9,6 +9,17 @@
       src: kubeadm-config.yaml.j2
       dest: /root/kubeadm-config.yaml
 
+  - name: Create static pod directory
+    file:
+      path: /etc/kubernetes/manifests
+      state: directory
+
+  - name: Create kubevip-manifest
+    template:
+      src: kubevip-config.yaml.j2
+      dest: /etc/kubernetes/manifests/kubevip.yaml
+
+
   - name: Start cluster by kubeadm
     shell: kubeadm init --config /root/kubeadm-config.yaml
     when: port.stdout == ""

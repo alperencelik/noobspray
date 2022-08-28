@@ -2,3 +2,5 @@ kube_version: 1.23.5
 cluster_name: rammstein
 pod_subnet: 192.168.0.0/16
 service_subnet: 10.96.0.0/12
+kubevip_ip: 10.0.0.200
+kubernetes_iface: ens36
