@@ -1,17 +1,13 @@
-    - name: check if join.sh exists
-      stat: 
-        path: /tmp/kubeadm-join.sh
-      register: kelsey
-  
-    - name: Copy kubeadm_join command
-      copy:
-        src: /tmp/kubeadm-join.sh
-        dest: /tmp/kubeadm-join.sh
-      when: kelsey.stat.exists == false
 
-    - name: Join the node to cluster
-      command: sh /tmp/kubeadm-join.sh
-      when: kelsey.stat.exists == false
+    - name: Create kubeadm-join config
+      template:
+        src: kubeadm-join-worker.yaml.j2
+        dest: /tmp/kubeadm-join-worker.yaml
+
+    - name: Join master nodes to cluster
+      command: kubeadm join --config /tmp/kubeadm-join-master.yaml 
+      register: kubeadm_join
+      changed_when: kubeadm_join is success
 
     - name: Copy nginx-proxy
       copy:
