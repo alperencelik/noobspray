@@ -39,33 +39,59 @@
     delegate_to: "{{ groups['master'][0] }}"
     when: init_cluster is not skipped
 
-  - name: Generate join command
-    shell: kubeadm token create --print-join-command > /tmp/kubeadm-join.sh
+  - name: Generate vars for join
+    shell: kubeadm token create --print-join-command 
     delegate_to: "{{ groups['master'][0] }}"
     register: kubeadm_join
 
-  - name: Fetch join.sh ( copy from master to ansible host)
+
+  - name: Create kubeadm token for
+    command: "kubeadm token create"
+    register: kubeadm_token
     delegate_to: "{{ groups['master'][0] }}"
-    fetch:
-      src: /tmp/kubeadm-join.sh
-      dest: /tmp/kubeadm-join.sh
-      flat: yes
+    run_once: true
+    changed_when: false
+
+  - name: Set kubeadm token
+    set_fact:
+      kubeadm_token: "{{ kubeadm_token.stdout }}"
+
+
+  - name: Create kubeadm cert for join
+    shell: "kubeadm init phase upload-certs --upload-certs | tail -n 1"
+    register: kubeadm_cert
+    delegate_to: "{{ groups['master'][0] }}"
+    run_once: true
+    changed_when: false
+
+  - name: Set kubeadm cert 
+    set_fact:
+      kubeadm_cert: "{{ kubeadm_cert.stdout }}"
   
-  - name: Install bashcompletion
-    yum:
-      name: bash-completion
-      state: present
+  - name: Create kubeadm cert hash
+    shell: "kubeadm token create --print-join-command | awk '{print $7}' | awk -F':' '{print $2}'"
+    register: kubeadm_cert_hash
+    delegate_to: "{{ groups['master'][0] }}"
+    run_once: true
+    changed_when: false
+   
+  - name: Set kubeadm cert hash
+    set_fact:
+      kubeadm_cert_hash: "{{ kubeadm_cert_hash.stdout }}"
 
 
-  - name: Edit .bashrc
-    blockinfile: 
-      state: present
-      insertafter: EOF
-      dest: /root/.bashrc
-      content: |
-        alias k=kubectl
-        complete -F __start_kubectl k
+  - name: Create kubeadm-join conf for masters
+    template:
+      src: kubeadm-join-cluster-master.yaml.j2
+      dest: /tmp/kubeadm-join-master.yaml
+    delegate_to: "{{ groups['master'][1]}}" 
 
-        
+  - name: Join master nodes to cluster
+    command: kubeadm join --config /tmp/kubeadm-join-master.yaml 
+    register: kubeadm_join
+    changed_when: kubeadm_join is success
+    delegate_to: "{{ groups['master'][1]}}" 
 
 
+
+    

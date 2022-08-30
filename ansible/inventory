@@ -3,10 +3,10 @@
 #
 [master]
 master ansible_user=root ansible_host=10.0.0.33
+master-2 ansible_user=root ansible_host=10.0.0.34
 # 10.0.0.32
 
 [worker]
-worker-1 ansible_user=root ansible_host=10.0.0.34
 worker-2 ansible_user=root ansible_host=10.0.0.35
 
 
