@@ -25,6 +25,7 @@
     shell: kubeadm init --config /root/kubeadm-config.yaml
     when: port.stdout == ""
     register: init_cluster
+    run_once: true
 
   - name: Add a line to a file 
     ansible.builtin.lineinfile:
@@ -38,6 +39,7 @@
     shell: kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml && kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
     delegate_to: "{{ groups['master'][0] }}"
     when: init_cluster is not skipped
+    run_once: true
 
   - name: Generate vars for join
     shell: kubeadm token create --print-join-command 
@@ -79,19 +81,18 @@
     set_fact:
       kubeadm_cert_hash: "{{ kubeadm_cert_hash.stdout }}"
 
+  - name: Kubeadm join other masters
+    block:
+      - name: Create kubeadm-join conf for masters
+        template:
+          src: kubeadm-join-cluster-master.yaml.j2
+          dest: /tmp/kubeadm-join-master.yaml
 
-  - name: Create kubeadm-join conf for masters
-    template:
-      src: kubeadm-join-cluster-master.yaml.j2
-      dest: /tmp/kubeadm-join-master.yaml
-    delegate_to: "{{ groups['master'][1]}}" 
-
-  - name: Join master nodes to cluster
-    command: kubeadm join --config /tmp/kubeadm-join-master.yaml 
-    register: kubeadm_join
-    changed_when: kubeadm_join is success
-    delegate_to: "{{ groups['master'][1]}}" 
-
+      - name: Join master nodes to cluster
+        command: kubeadm join --config /tmp/kubeadm-join-master.yaml 
+        register: kubeadm_join
+        changed_when: kubeadm_join is success
+    when: inventory_hostname !=  "{{ groups['master'][0] }}" 
 
 
     
