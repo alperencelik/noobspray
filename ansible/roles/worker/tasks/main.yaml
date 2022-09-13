@@ -1,11 +1,22 @@
+    - name: Set kubeadm token
+      set_fact:
+        kubeadm_token: "{{ hostvars['master-1']['kubeadm_token'] }}" 
+
+    - name: Set kubeadm cert 
+      set_fact:
+        kubeadm_cert: "{{ hostvars['master-1']['kubeadm_cert'] }}" 
+
+    - name: Set kubeadm cert hash
+      set_fact:
+        kubeadm_cert_hash: "{{ hostvars['master-1']['kubeadm_cert_hash'] }}" 
 
     - name: Create kubeadm-join config
       template:
         src: kubeadm-join-worker.yaml.j2
         dest: /tmp/kubeadm-join-worker.yaml
 
-    - name: Join master nodes to cluster
-      command: kubeadm join --config /tmp/kubeadm-join-master.yaml 
+    - name: Join worker nodes to cluster
+      command: kubeadm join --config /tmp/kubeadm-join-worker.yaml 
       register: kubeadm_join
       changed_when: kubeadm_join is success
 
