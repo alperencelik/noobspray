@@ -1,0 +1,14 @@
+---
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: JoinConfiguration
+discovery:
+  bootstrapToken:
+    token: {{ kubeadm_token }}
+    apiServerEndpoint: "{{ kubevip_ip }}:6443"
+    caCertHashes: 
+      - sha256:{{ kubeadm_cert_hash }}
+controlPlane:
+  localAPIEndpoint:
+    advertiseAddress: {{ hostvars[ groups['master'][1] ].ansible_host }} 
+    bindPort: 6443
+  certificateKey: {{ kubeadm_cert }}

@@ -1,0 +1,11 @@
+---
+# Only for test purposes do not use this to create cluster
+
+- hosts: master
+  roles:
+    - role: master
+
+- hosts: worker
+  roles:
+    - role: worker
+    
