@@ -4,7 +4,7 @@
 
 # NoobSpray
 
-A simple playbook to install kubernetes via ansible. Inspired by kubespray.
+A simple playbook to install kubernetes via ansible on CentOS 7 VM's. Inspired by kubespray. Noobspray uses **kubevip** project for control plane endpoint. 
 
 </br>
 
@@ -22,19 +22,24 @@ A simple playbook to install kubernetes via ansible. Inspired by kubespray.
 
 ---
 
-Your kubernetes cluster is **three steps** far to you. Let's get started. Also you can specify Kubernetes version in **group_vars/all/main.yaml**.
+Your kubernetes cluster is **four steps** far to you. Let's get started. Also you can specify Kubernetes version in **group_vars/all/main.yaml**.
 
 1. Clone this repository
 
     `git clone https://github.com/alperencelik/noobspray.git`
 
-2. Edit the inventory file 
+2. Edit the variables for kubernetes
 
-    `cd ansible && vim inventory`
+    `cd ansible && vim group_vars/all/main.yaml`
 
-3. To create kubernetes cluster run the command
+3. Edit the inventory file 
 
-    `ansible-playbook kubernetes.yaml`
+    `vim inventory` 
+
+4.  To create kubernetes cluster run the command
+
+    `ansible-playbook kubernetes.yaml` 
+
 
 Then take a coffee break :coffee: until your cluster go up and running. 
 
