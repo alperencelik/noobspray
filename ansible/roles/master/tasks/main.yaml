@@ -13,13 +13,7 @@
     file:
       path: /etc/kubernetes/manifests
       state: directory
-
-  - name: Create kubevip-manifest
-    template:
-      src: kubevip-config.yaml.j2
-      dest: /etc/kubernetes/manifests/kubevip.yaml
-
-
+  
   - name: Start cluster by kubeadm
     delegate_to: "{{ groups['master'][0] }}"
     shell: kubeadm init --config /root/kubeadm-config.yaml

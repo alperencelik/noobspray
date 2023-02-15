@@ -1,7 +1,7 @@
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
 kubernetesVersion: {{ kube_version }}
-controlPlaneEndpoint: "{{ kubevip_ip }}:6443"
+controlPlaneEndpoint: "{{ hostvars[ groups['master'][1] ].ansible_host }}:6443"
 clusterName: {{ cluster_name }}
 dns:
   type: CoreDNS
