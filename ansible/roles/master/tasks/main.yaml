@@ -29,11 +29,23 @@
   - name: Export kubeconfig to create resources
     shell: export KUBECONFIG="/etc/kubernetes/admin.conf"
     
-  - name: Deploy calico network plugin
-    shell: kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml && kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
+  # - name: Download calico yaml
+    # get_url:
+      # url:  
+      # dest: /tmp/calico.yaml
+      # mode: 0644
+    # delegate_to: "{{ groups['master'][0] }}"
+
+  - name: Apply calico manifests
+    shell: kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
     delegate_to: "{{ groups['master'][0] }}"
     when: init_cluster is not skipped
-    run_once: true
+
+    #   - name: Deploy calico network plugin
+    # shell: kubectl create -f 
+    # delegate_to: "{{ groups['master'][0] }}"
+    # when: init_cluster is not skipped
+    # run_once: true
 
   - name: Generate vars for join
     shell: kubeadm token create --print-join-command 

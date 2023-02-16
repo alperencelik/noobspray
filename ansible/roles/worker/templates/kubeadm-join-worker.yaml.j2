@@ -4,6 +4,6 @@ kind: JoinConfiguration
 discovery:
   bootstrapToken:
     token: {{ kubeadm_token }}
-    apiServerEndpoint: "{{ hostvars[ groups['master'][1] ].ansible_host }}:6443"
+    apiServerEndpoint: "{{ hostvars[ groups['master'][0] ].ansible_host }}:6443"
     caCertHashes: 
       - sha256:{{ kubeadm_cert_hash }}

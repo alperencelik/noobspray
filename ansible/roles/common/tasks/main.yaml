@@ -18,6 +18,10 @@
       src: kubernetes.repo
       dest: /etc/yum.repos.d/kubernetes.repo
 
+  - name: Change hostname to {{ inventory_hostname }}
+    hostname:
+      name: "{{ inventory_hostname }}"
+
   - name: Disabling SELinux state
     selinux:
       state: disabled
