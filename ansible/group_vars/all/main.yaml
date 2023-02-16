@@ -2,3 +2,6 @@ kube_version: 1.26.1
 cluster_name: kubevice
 pod_subnet: 192.168.0.0/16
 service_subnet: 10.96.0.0/12
+kubevip_ip: 10.0.0.100
+kubernetes_iface: ens36
+kubevip_version: 0.4.0
