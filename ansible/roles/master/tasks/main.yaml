@@ -29,15 +29,15 @@
   - name: Export kubeconfig to create resources
     shell: export KUBECONFIG="/etc/kubernetes/admin.conf"
     
-  # - name: Download calico yaml
-    # get_url:
-      # url:  
-      # dest: /tmp/calico.yaml
-      # mode: 0644
-    # delegate_to: "{{ groups['master'][0] }}"
+  - name: Download calico manifests
+    get_url:
+      url: https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+      dest: /tmp/calico.yaml
+    delegate_to: "{{ groups['master'][0] }}"
+    when: init_cluster is not skipped
 
   - name: Apply calico manifests
-    shell: kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+    shell: kubectl apply -f /tmp/calico.yaml 
     delegate_to: "{{ groups['master'][0] }}"
     when: init_cluster is not skipped
 
