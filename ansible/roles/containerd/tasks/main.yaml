@@ -1,10 +1,4 @@
-
-  - name: Add repo
-    get_url:
-      url: https://download.docker.com/linux/fedora/docker-ce.repo
-      dest: /etc/yum.repos.d/docker-ce.repo
-      
-      
+  
   - name: Create file for modules to install
     copy:
       dest: /etc/modules-load.d/containerd.conf
@@ -32,9 +26,14 @@
     shell: sysctl --system
 
   - name: Install containerd
-    yum:
-      name: containerd.io
+    apt:
+      name: containerd
       state: present
+
+  - name: Create containerd directory
+    file:
+      path: /etc/containerd
+      state: directory
       
   - name: Copy containerd.config
     copy:

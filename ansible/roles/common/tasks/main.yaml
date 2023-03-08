@@ -12,11 +12,20 @@
     systemd:
       name: firewalld
       state: stopped
-      
+      enabled: no
+    when: ansible_os_family == "RedHat"
+
+  - name: Gpg key for kube packages
+    shell: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - 
+  # Copy kubernetes repo for ubuntu
   - name: Copy kubernetes repo
     copy:
-      src: kubernetes.repo
-      dest: /etc/yum.repos.d/kubernetes.repo
+      src: kubernetes.list
+      dest: /etc/apt/sources.list.d/kubernetes.list
+      owner: root
+      group: root
+      mode: 0644
+    when: ansible_os_family == "Debian"
 
   - name: Change hostname to {{ inventory_hostname }}
     hostname:
@@ -26,19 +35,27 @@
     selinux:
       state: disabled
     register: selinux_status
+    when: ansible_os_family == "RedHat"
     
   - name: Reboot if selinux tag changes
     reboot:
       reboot_timeout: 3600
-    when: selinux_status is changed
-       
+    when: selinux_status is changed and ansible_os_family == "RedHat"
+
+  - name: Apt update
+    shell: apt update -y 
+    when: ansible_os_family == "Debian"
+
+
   - name: Install kube packages
-    yum:
+    apt:
       name: "{{ packages }}"
     vars:
       packages:
-        - kubelet-{{ kube_version }}
-        - kubeadm-{{ kube_version }}
+        - kubelet
+        - kubeadm
+#        - kubelet-{{ kube_version }}
+        #- kubeadm-{{ kube_version }}
         - kubectl
       state: present
 
