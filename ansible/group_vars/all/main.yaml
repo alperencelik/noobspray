@@ -1,7 +1,7 @@
 kube_version: 1.23.5
-cluster_name: rammstein
+cluster_name: asgard
 pod_subnet: 192.168.0.0/16
 service_subnet: 10.96.0.0/12
 kubevip_ip: 10.0.0.100
-kubernetes_iface: ens36
+kubernetes_iface: eth0
 kubevip_version: 0.4.0

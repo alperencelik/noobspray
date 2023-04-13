@@ -1,11 +1,9 @@
 [master]
-master-1 ansible_user=root ansible_host=10.0.0.101
-master-2 ansible_user=root ansible_host=10.0.0.102
-master-3 ansible_user=root ansible_host=10.0.0.103
+master-1 ansible_user=root ansible_host=10.0.0.142
 
 [worker]
-worker-1 ansible_user=root ansible_host=10.0.0.104
-worker-2 ansible_user=root ansible_host=10.0.0.105
-worker-3 ansible_user=root ansible_host=10.0.0.106
+worker-1 ansible_user=root ansible_host=10.0.0.144
+worker-2 ansible_user=root ansible_host=10.0.0.143
+worker-3 ansible_user=root ansible_host=10.0.0.145
 
 

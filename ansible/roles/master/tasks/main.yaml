@@ -34,12 +34,27 @@
    
   - name: Export kubeconfig to create resources
     shell: export KUBECONFIG="/etc/kubernetes/admin.conf"
+
+  - name: Create kubeconfig
+    shell: mkdir -p $HOME/.kube && cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && chown $(id -u):$(id -g) $HOME/.kube/config
+    delegate_to: "{{ groups['master'][0] }}"
+    when: init_cluster is not skipped
+    run_once: true
+
+  - name: Copy the kubeconfig to the local machine
+    fetch:
+      src: /etc/kubernetes/admin.conf
+      dest: ./admin.conf
+      flat: yes
+      fail_on_missing: yes
+      mode: 0644
     
   - name: Deploy calico network plugin
     shell: kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml && kubectl create -f https://projectcalico.docs.tigera.io/manifests/custom-resources.yaml
     delegate_to: "{{ groups['master'][0] }}"
     when: init_cluster is not skipped
     run_once: true
+    ignore_errors: true
 
   - name: Generate vars for join
     shell: kubeadm token create --print-join-command 
